@@ -1,0 +1,3 @@
+# 원본 고화질 사진은 저장소에 올리지 않음 (웹용은 images/web, images/thumbs 사용)
+images/snap*.jpg
+images/main.jpg

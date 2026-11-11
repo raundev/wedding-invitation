@@ -672,7 +672,7 @@
     <!-- =====================================================
          5. LOCATION (오시는 길 - 빌라드지디 안양 3층 크리스탈캐슬 홀)
     ====================================================== -->
-    <section class="inv-section">
+    <section class="inv-section" id="location">
       <div class="section-en-label">Location</div>
       <h2 class="section-kr-title">오시는 길</h2>
       <div class="section-divider"></div>
@@ -1425,8 +1425,9 @@
 
       shareTitle: '이지후 ♥ 고우진 결혼합니다',
       shareDescription: '2027년 4월 10일 토요일 오전 11시\n빌라드지디 안양 3층 크리스탈캐슬 홀',
-      invitationUrl: window.location.href,
-      venueMapUrl: 'https://map.naver.com/p/search/%EB%B9%8C%EB%9D%BC%EB%93%9C%EC%A7%80%EB%94%94%20%EC%95%88%EC%96%91',
+      invitationUrl: 'https://raundev.github.io/wedding-invitation/',
+      // 카카오톡 공유 버튼은 카카오에 등록한 도메인으로만 연결되므로, 청첩장의 '오시는 길' 섹션으로 연결
+      venueMapUrl: 'https://raundev.github.io/wedding-invitation/#location',
 
       // 메인 웨딩 커버 사진
       heroImage: './images/web/main.jpg',

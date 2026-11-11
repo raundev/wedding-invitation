@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>이지후 ♥ 고우진 모바일 청첩장</title>
+  <script>
+    // 카카오톡 등에서 '#'이 '%23'으로 바뀌어 들어온 주소 등 잘못된 경로를 청첩장으로 돌려보냄
+    (function () {
+      var base = '/wedding-invitation/';
+      var path = decodeURIComponent(location.pathname + location.search + location.hash).toLowerCase();
+      var target = path.indexOf('location') !== -1 ? base + '?section=location' : base;
+      location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p style="font-family:sans-serif;text-align:center;margin-top:40vh;color:#6E655F">
+    청첩장으로 이동 중입니다… <a href="/wedding-invitation/">바로 가기</a>
+  </p>
+</body>
+</html>

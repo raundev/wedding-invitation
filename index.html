@@ -1427,7 +1427,7 @@
       shareDescription: '2027년 4월 10일 토요일 오전 11시\n빌라드지디 안양 3층 크리스탈캐슬 홀',
       invitationUrl: 'https://raundev.github.io/wedding-invitation/',
       // 카카오톡 공유 버튼은 카카오에 등록한 도메인으로만 연결되므로, 청첩장의 '오시는 길' 섹션으로 연결
-      venueMapUrl: 'https://raundev.github.io/wedding-invitation/#location',
+      venueMapUrl: 'https://raundev.github.io/wedding-invitation/?section=location',
 
       // 메인 웨딩 커버 사진
       heroImage: './images/web/main.jpg',
@@ -2296,6 +2296,21 @@ function doPost(e) {
         showToast(`${selectedRsvpSide} ${name}님 참석 의사가 접수되었습니다.`);
       }
     }
+
+    // 공유 링크로 특정 섹션 바로가기 (?section=location 또는 #location)
+    function scrollToSharedSection() {
+      try {
+        const params = new URLSearchParams(location.search);
+        const target = params.get('section') || decodeURIComponent(location.hash || '').replace('#', '');
+        if (!target) return;
+        const el = document.getElementById(target);
+        if (!el) return;
+        // 사진·지도 로딩으로 위치가 바뀔 수 있어 잠시 후 한 번 더 맞춤
+        el.scrollIntoView({ block: 'start' });
+        setTimeout(() => el.scrollIntoView({ block: 'start' }), 600);
+      } catch (e) {}
+    }
+    window.addEventListener('load', scrollToSharedSection);
 
     // 초기 실행
     updateCountdown();
